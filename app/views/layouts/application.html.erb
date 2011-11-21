@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello Shubham</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header style="padding:10px;margin:0;font-size:32px;text-align:center">
+	<h1>Shubham Bansal</h1>
+</header>
+
+<div class="content">
+	<nav class="nav">
+		<%= link_to "Home"%>
+		<%= link_to "Tasks", tasks_path%>
+		<%= link_to "Folders", folders_path%>
+		<%= link_to "Weight Loss"%>
+		<%= link_to "Weather"%>
+	</nav>
+	<%= yield %>
+	<div class="push"></div>
+</div>
+
+<footer class="footer">
+	Shubham Bansal, All Right Reserved 2012
+</footer>
+
+</body>
+</html>
