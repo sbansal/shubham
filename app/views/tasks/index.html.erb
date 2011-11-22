@@ -1,21 +1,22 @@
 <div class="status_bar">
+	<span class="status"><%= link_to 'Add New Task', new_task_path %></span>
 	<span class="status"><%= pluralize(Task.complete.count, 'Task') %> Completed</span>
 	<span class="status"><%= pluralize(Task.incomplete.count, 'Task') %> Remaining</span>
 </div>
-<h1>TASKS</h1>
 <table>
-<% @tasks.each do |task| %>
+<% @tasks_by_date.each do |date,tasks| %>
+  <h4><%= date %> </h4> 
+  <% tasks.each do |task| %>
   <tr>
 	<td><%= check_box_tag task.id, '', task.complete %></td>
     <td><%= task.name %></td>
 	<td><%= link_to '&raquo;'.html_safe, edit_task_path(task) %></td>
-    <!-- <td><%= link_to 'Show', task %></td>
-        
-        <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td> -->
+    <!-- <td><%= link_to 'Show', task %></td>    
+    <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td> -->
   </tr>
+  <% end %>
 <% end %>
 </table>
-
 <br />
 
-<%= link_to 'New Task', new_task_path %>
+

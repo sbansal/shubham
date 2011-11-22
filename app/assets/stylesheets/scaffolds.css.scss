@@ -3,16 +3,20 @@ body {
   background-color: #E0E0D8;
   font-family: 'Helvetica Neue', Helvetica, sans-serif;line-height: 1.5em;
   font-size: 18px;
-  color: black;
+  color: #503F00;
   margin:0;
   height: 100%;
+  line-height:1.5em;
 }
 .content {min-height: 100%;height: auto !important;height: 100%;margin: 0 auto -100px;padding:10px;width:70%;}
-.nav {padding:10px;border-top:solid 4px #000;border-bottom:solid 4px #000;text-align:center;font-size:28px;margin-bottom:20px;}
-.nav a{color:#000;margin:0 20px;text-decoration:none;}
+.nav {padding:10px;border-top:solid 4px #503F00;border-bottom:solid 4px #503F00;text-align:center;font-size:28px;margin-bottom:20px;}
+.nav a{color:#503F00;margin:0 20px;text-decoration:none;padding:5px 10px;}
+.nav a:hover {color:#FFF;background-color:#503F00;border-radius:5px;}
+.nav a.selected {color:#FFF;background-color:#503F00;border-radius:5px;}
 .footer{height: 30px;text-align:center;clear:both;}
 .push {height: 30px;clear:both;}
 .status {padding:10px 20px;background-color:#D2D2CA;border-radius:5px;}
+.clear {clear:both;}
 div.status_bar {text-align:center;margin:10px 0;}
  
 p, ol, ul, td {
@@ -25,12 +29,12 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #000;
+  color: #503F00;
   &:visited {
-    color: #000; }
+    color: #503F00; }
   &:hover {
     color: #fff;
-    background-color: #000; } }
+    background-color: #503F00; } }
 
 div {
   &.field, &.actions {
