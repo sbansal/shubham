@@ -18,10 +18,14 @@ body {
 .status {padding:10px 20px;background-color:#D2D2CA;border-radius:5px;}
 .clear {clear:both;}
 div.status_bar {text-align:center;margin:10px 0;}
+span.blog_date {font-size:13px;}
+p.blog_title {font-size:18px;font-weight:bold;margin:0;}
+div.menu_bar {text-align:left;margin:10px 0;}
  
 p, ol, ul, td {
-  font-size: 16px;
-  line-height: 18px; }
+  font-size: 18px;
+  line-height: 1.5em; 
+}
 
 pre {
   background-color: #eee;

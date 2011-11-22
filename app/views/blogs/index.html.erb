@@ -1,0 +1,11 @@
+<div class="menu_bar">
+	<span class="status"><%= link_to 'New Note', new_blog_path %></span>
+</div>
+<% @blogs.each do |blog| %>
+	<p class="blog_title"><%= blog.title %></p>
+	<span class="blog_date">Added on <%= blog.created_at.strftime("%m/%d/%Y")%></span> |
+	<span class="blog_date"><%= link_to 'Edit', edit_blog_path(blog)%></span>
+	<p><%= blog.content %></p>
+<% end %>
+<br />
+

@@ -1,4 +1,6 @@
 Shubham::Application.routes.draw do
+  resources :blogs
+
   resources :tasks
 
   resources :folders
