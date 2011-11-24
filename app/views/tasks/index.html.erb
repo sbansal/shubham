@@ -3,20 +3,16 @@
 	<span class="status"><%= pluralize(Task.complete.count, 'Task') %> Completed</span>
 	<span class="status"><%= pluralize(Task.incomplete.count, 'Task') %> Remaining</span>
 </div>
-<table>
 <% @tasks_by_date.each do |date,tasks| %>
-  <h4><%= date %> </h4> 
+  <h4 class="task_date"><%= date %> </h4>
   <% tasks.each do |task| %>
-  <tr>
-	<td><%= check_box_tag task.id, '', task.complete %></td>
-    <td><%= task.name %></td>
-	<td><%= link_to '&raquo;'.html_safe, edit_task_path(task) %></td>
-    <!-- <td><%= link_to 'Show', task %></td>    
-    <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td> -->
-  </tr>
+  <span><%= check_box_tag task.id, '', task.complete %></span>
+  <span><%= task.name %></span>
+  <span class="small_links"><%= link_to 'Edit'.html_safe, edit_task_path(task) %> | </span>
+  <span class="small_links"><%= link_to 'Delete', task, confirm: 'Are you sure?', method: :delete %></span>
+  <br/>
   <% end %>
 <% end %>
-</table>
 <br />
 
 

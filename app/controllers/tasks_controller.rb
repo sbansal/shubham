@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks_by_date = Task.all.group_by {|task| task.created_at.strftime("%B %d %Y")}
+    @tasks_by_date = Task.order("created_at DESC").group_by {|task| task.created_at.strftime("%B %d %Y")}
 
     respond_to do |format|
       format.html # index.html.erb
