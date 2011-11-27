@@ -12,7 +12,7 @@
 </header>
 <div class="content">
 	<nav class="nav">
-		<%= link_to "Home"%>
+		<%= link_to "Home", tasks_path %>
 		<%= link_to "Tasks", tasks_path, :class => "#{"selected" if params[:controller] == "tasks"}"%>
 		<%= link_to "Folders", folders_path, :class => "#{"selected" if params[:controller] == "folders"}"%>
 		<%= link_to "Weight Loss"%>
@@ -21,10 +21,6 @@
 	<%= yield %>
 	<div class="push"></div>
 </div>
-
-<footer class="footer">
-	Shubham Bansal, All Right Reserved 2012
-</footer>
 
 </body>
 </html>

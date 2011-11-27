@@ -5,7 +5,7 @@
 	<p class="blog_title"><%= blog.title %></p>
 	<span class="blog_date">Added on <%= blog.created_at.strftime("%m/%d/%Y")%></span> |
 	<span class="blog_date"><%= link_to 'Edit', edit_blog_path(blog)%></span>
-	<p><%= blog.content %></p>
+	<p><%= blog.content.html_safe %></p>
 <% end %>
 <br />
 

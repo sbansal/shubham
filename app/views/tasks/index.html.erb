@@ -6,7 +6,7 @@
 <% @tasks_by_date.each do |date,tasks| %>
   <h4 class="task_date"><%= date %> </h4>
   <% tasks.each do |task| %>
-  <span><%= check_box_tag task.id, '', task.complete %></span>
+  <span><%= check_box_tag task.id, task.id, task.complete, :class => 'task_check' %></span>
   <span><%= task.name %></span>
   <span class="small_links"><%= link_to 'Edit'.html_safe, edit_task_path(task) %> | </span>
   <span class="small_links"><%= link_to 'Delete', task, confirm: 'Are you sure?', method: :delete %></span>
