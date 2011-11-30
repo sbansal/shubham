@@ -3,7 +3,8 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks_by_date = Task.order("created_at DESC").group_by {|task| task.created_at.strftime("%B %d %Y")}
-
+    @complete_tasks = Task.complete
+    @incomplete_tasks = Task.incomplete
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }
@@ -80,4 +81,12 @@ class TasksController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def update_task
+    @task = Task.find(params[:id])
+    @task.update_attributes(:complete => params[:checked])
+    @complete_tasks = Task.complete
+    @incomplete_tasks = Task.incomplete
+  end
+
 end

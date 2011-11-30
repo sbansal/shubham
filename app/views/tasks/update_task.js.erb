@@ -1,0 +1,3 @@
+// $("#task_<%= @task.id%>").effect("highlight", {}, 1000);
+$("#completed_tasks").text('<%= pluralize(@complete_tasks.count, 'Task') %> Completed');
+$("#incomplete_tasks").text('<%= pluralize(@incomplete_tasks.count, 'Task') %> Remaining');

@@ -1,18 +1,13 @@
 <div class="status_bar">
 	<span class="status"><%= link_to 'Add New Task', new_task_path %></span>
-	<span class="status"><%= pluralize(Task.complete.count, 'Task') %> Completed</span>
-	<span class="status"><%= pluralize(Task.incomplete.count, 'Task') %> Remaining</span>
+	<span class="status" id="completed_tasks"><%= pluralize(@complete_tasks.count, 'Task') %> Completed</span>
+	<span class="status" id="incomplete_tasks"><%= pluralize(@incomplete_tasks.count, 'Task') %> Remaining</span>
 </div>
 <% @tasks_by_date.each do |date,tasks| %>
   <h4 class="task_date"><%= date %> </h4>
   <% tasks.each do |task| %>
-  <span><%= check_box_tag task.id, task.id, task.complete, :class => 'task_check' %></span>
-  <span><%= task.name %></span>
-  <span class="small_links"><%= link_to 'Edit'.html_safe, edit_task_path(task) %> | </span>
-  <span class="small_links"><%= link_to 'Delete', task, confirm: 'Are you sure?', method: :delete %></span>
-  <br/>
+	<%= render 'task_item', :task => task %>
   <% end %>
 <% end %>
-<br />
 
 
