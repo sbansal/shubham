@@ -53,5 +53,12 @@ module Shubham
     #           #{config.root}/app/controllers/concerns
     #           #{config.root}/app/models/concerns
     #         )
+    
+    #google analytics code
+    if Rails.env == "production"
+      config.middleware.use("Rack::GoogleAnalytics", :web_property_id => ENV['GA_KEY'])
+    end
+    
+    
   end
 end
