@@ -29,3 +29,10 @@ $ ->
 		else
 			$.getScript("/update_task.js?id=" + task_id + "&checked=0")
 			true
+			
+	setTimeout ( -> 
+		unless $('#notice').text() == ""
+			$('#notice').fadeOut('slow')
+	), 3000
+		
+	

@@ -5,7 +5,7 @@ class HabitsController < ApplicationController
   # GET /habits
   # GET /habits.json
   def index
-    @habits = Habit.all
+    @habits = current_user.habits
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @habits }
@@ -47,7 +47,7 @@ class HabitsController < ApplicationController
 
     respond_to do |format|
       if @habit.save
-        format.html { redirect_to @habit, notice: 'Habit was successfully created.' }
+        format.html { redirect_to habits_path, notice: 'Habit was successfully created.' }
         format.json { render json: @habit, status: :created, location: @habit }
       else
         format.html { render action: "new" }
@@ -63,7 +63,7 @@ class HabitsController < ApplicationController
 
     respond_to do |format|
       if @habit.update_attributes(params[:habit])
-        format.html { redirect_to @habit, notice: 'Habit was successfully updated.' }
+        format.html { redirect_to habits_path, notice: 'Habit was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

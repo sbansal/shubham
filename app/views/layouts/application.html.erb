@@ -13,9 +13,9 @@
 	<nav class="nav button-group">
 		<% if user_signed_in? %>
 			<p class="user_name">Welcome, <%= current_user.fullname %> </p>
-			<%= link_to "HOME",tasks_path , :class => 'button primary big' %>
-			<%= link_to "TASKS", tasks_path, :class => "button primary big #{"active" if params[:controller] == "tasks"}"%>
-			<%= link_to "HABITS", habits_path, :class => "button primary big #{"active" if params[:controller] == "habits"}"%>
+			<!-- <%= link_to "HOME",tasks_path , :class => 'button primary big' %> -->
+			<%= link_to "Todo List", tasks_path, :class => "button primary big #{"active" if params[:controller] == "tasks"}"%>
+			<%= link_to "Manage Habits", habits_path, :class => "button primary big #{"active" if params[:controller] == "habits"}"%>
 			<!-- <%= link_to "NOTEBOOK", blogs_path, :class => "button primary big #{"active" if params[:controller] == "blogs"}"%> -->
 			<%= link_to "LOGOUT", destroy_user_session_path, :method => :delete, :class => 'button primary big'%>
 		<% else %>
@@ -27,6 +27,7 @@
 </div>
 <div class="content">
 	<p class="alert"><%= alert %></p>
+	<p id="notice"><%= notice %></p>
 	<%= yield %>
 	<div class="push"></div>
 </div>
