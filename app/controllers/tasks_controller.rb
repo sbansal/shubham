@@ -1,13 +1,24 @@
 class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
+  before_filter :authenticate_user!
+  
   def index
-    @tasks_by_date = Task.order("created_at DESC").group_by {|task| task.created_at.strftime("%B %d %Y")}
-    @complete_tasks = Task.complete
-    @incomplete_tasks = Task.incomplete
+    logger.info params[:Search]
+    if params[:Search]
+      @tasks = Task.search(params[:Search], current_user)
+      if @tasks.nil?
+        @tasks = current_user.tasks
+      end
+    else
+      @tasks = current_user.tasks
+    end
+    @tasks_by_date = @tasks.order("created_at DESC").group_by {|task| task.created_at.strftime("%B %d %Y")}
+    @complete_tasks = current_user.tasks.complete
+    @incomplete_tasks = current_user.tasks.incomplete
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @tasks }
+      format.json { render json: @tasks_by_date }
     end
   end
 
@@ -42,6 +53,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
+    @task.update_attributes(:user_id => current_user.id)
 
     respond_to do |format|
       if @task.save

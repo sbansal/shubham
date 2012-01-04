@@ -2,7 +2,6 @@
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
       <ul>
       <% @task.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -12,18 +11,39 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_area :name %>
+    <p>Task Name</p>
+    <%= f.text_area :name, :rows => 8, :cols => 70 %>
   </div>
   <div class="field">
-    <%= f.label :complete %><br />
+	<p>Has the task been completed yet?</p>
     <%= f.check_box :complete %>
+    <%= f.label :complete, "Mark Complete" %><br />
   </div>
   <div class="field">
-    <%= f.label :duedate %><br />
-    <%= datepicker_input :task, :duedate %>
+	<p>If the task has a due date, specify it here?</p>
+	<%= f.date_select :duedate, :order => [:day, :month, :year], :start_year => Time.new.year%>
+	<div class="form_hint">*By Default each task is due the same day.</div>
   </div>
+  <div class="field">
+	<p>Specify the basket(s) to which the task will be assigned.
+	</p>
+	
+	<%= hidden_field_tag "task[basket_ids][]", nil %>
+    <% Basket.all.each do |basket| %>
+		<%= check_box_tag "task[basket_ids][]", basket.id, @task.basket_ids.include?(basket.id), id: dom_id(basket) %>
+		<%= label_tag dom_id(basket), basket.name %><br/>
+ 	<% end %>
+  </div>
+
+  <div class="seperator"></div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save Task', :class => 'button big green' %>
+	<% unless @task.new_record? %>
+		<%= link_to 'Delete Task', @task, method: :delete, confirm: 'Are you sure you would like to delete the task?',
+			 :class => 'button big red' %> 
+	<% end %>
+	<span class="left-space">or</span>
+	<%= link_to 'Cancel', tasks_path, :class => 'small_link' %>
   </div>
 <% end %>

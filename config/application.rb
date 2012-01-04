@@ -44,5 +44,14 @@ module Shubham
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    #(devise) On config/application.rb forcing your application to not access the DB or load models when precompiling your assets.
+    config.assets.initialize_on_precompile = false
+    
+    #add the concerns directory 
+    # config.autoload_paths += %W(
+    #           #{config.root}/app/controllers/concerns
+    #           #{config.root}/app/models/concerns
+    #         )
   end
 end

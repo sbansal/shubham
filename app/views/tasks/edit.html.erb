@@ -1,6 +1,6 @@
-<h1>Editing task</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+<div class="form_container">
+	<h1 class="form_header">Edit the task</h1>
+	<div class="seperator"></div>
+	<%= render 'form' %>
+</div>
+<%= render :partial => "common/basket_hint" %>

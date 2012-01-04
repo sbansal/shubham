@@ -1,0 +1,18 @@
+<div class="form_container">
+	<h1 class="form_header">Forgot your password?</h1>
+
+	<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+	  <%= devise_error_messages! %>
+
+	  <div class="field">
+		<p>Please enter your account email address.</p>
+	  	<%= f.email_field :email, :placeholder => 'johndoe@gmail.com', :size => 50 %></div>
+
+	  <div>
+		<%= f.submit "Send me reset password instructions", :class => 'button big green' %>
+		<span class="left-space">or</span>
+		<%= link_to 'Cancel', new_user_session_path, :class => 'small_link' %>
+	  </div>
+	<% end %>
+
+</div>

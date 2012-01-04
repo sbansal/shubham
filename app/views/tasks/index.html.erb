@@ -1,7 +1,12 @@
 <div class="status_bar">
-	<span class="status"><%= link_to 'Add New Task', new_task_path %></span>
+	<span><%= link_to 'Add New Task', new_task_path, :class => 'button big icon add' %></span>
 	<span class="status" id="completed_tasks"><%= pluralize(@complete_tasks.count, 'Task') %> Completed</span>
 	<span class="status" id="incomplete_tasks"><%= pluralize(@incomplete_tasks.count, 'Task') %> Remaining</span>
+	<span class="task_form_search">
+		<%= form_tag tasks_path, :method => :get do %>
+			<%= text_field_tag 'Search','', :class => 'task_search', :placeholder => 'Search Tasks...'%>
+		<% end %>
+	</span>
 </div>
 <% @tasks_by_date.each do |date,tasks| %>
   <h4 class="task_date"><%= date %> </h4>

@@ -1,0 +1,24 @@
+<div class="month">
+	<h4 class="month_name"><%= month.strftime("%B %Y") %></h4>
+	<% (0..5).each do |i| %>
+		<div class="week">
+			<% (1..7).each do |j| %>
+				<% if Trace.empty_day(month, i, j) %>
+					<div class="day <%=  Trace.css(month,i,j)%> ">
+						<span class="circle <%=  Trace.run_trace(traces,month,i,j)%>">
+							<%= Trace.calender_date(traces,month,i,j, habit) %>
+						</span>
+					</div>
+				<% else%>
+					<div class="day empty_day "%></div>
+				<% end%>
+			<% end %>
+		</div>
+	<% end %>
+	<div class="center_align">
+		<span class="circle good"></span> ––– <span class="vert_align"><%= traces.count {|item| item.trace_complete}%></span>
+	</div>
+	<div class="center_align">
+		<span class="circle bad"></span> ––– <span class="vert_align;"><%= traces.count {|item| !item.trace_complete}%></span>
+	</div>
+</div>

@@ -1,4 +1,8 @@
 Shubham::Application.routes.draw do
+  resources :habits
+
+  devise_for :users
+
   resources :blogs
 
   resources :tasks
@@ -6,6 +10,8 @@ Shubham::Application.routes.draw do
   resources :folders
   
   match "/update_task", :to => "tasks#update_task"
+  match "/update_trace/:id", :to => "traces#update"
+  match "/create_trace/:habit_id/:trace_date", :to => "traces#create"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

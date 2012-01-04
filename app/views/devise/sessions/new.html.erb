@@ -1,0 +1,32 @@
+<div class="form_container login_page">
+	<div class="new_user" style="float:left;">
+		<div style="float:left;width:45%;padding:20px 10px 20px 20px;border-right:1px solid #B64926;">
+			<h1 class="form_header">Already have an account? Sign In here.</h1>
+			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+			  <div>
+			  <%= f.label :email, :class => 'placeholder'%><br/>
+			  <%= f.email_field :email, :validate => true, :size => 50, :placeholder => 'johndoe@gmail.com', :type => 'text	' %></div>
+
+			  <div>
+			  <%= f.label :password, :class => 'placeholder' %><br/>
+			  <%= f.password_field :password, :size => 50, :placeholder => "Password" %></div>
+
+			  <% if devise_mapping.rememberable? -%>
+			    <div class="remember_check"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+			  <% end -%>
+			  <div>
+				<%= f.submit "Log Me In", :class => 'button green primary big' %>
+				<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+				  <%= link_to "Forgot your password?", new_password_path(resource_name), :class => 'small_link' %><br />
+				<% end -%>
+			</div>
+			<% end %>
+		</div>
+		<div style="float:left;width:45%;padding:20px 0 20px 70px;">
+			<h1 class="form_header">Don't have an account yet? Get it here.</h1>
+			<%= link_to 'Sign Up for your FREE account here', new_user_registration_path, :class => 'button green primary mega'%>
+		</div>
+	</div>
+	
+</div>
+

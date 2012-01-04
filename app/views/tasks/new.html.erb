@@ -1,5 +1,7 @@
-<h1>New task</h1>
+<div class="form_container">
+	<h1 class="form_header">Add a new task</h1>
+	<div class="seperator"></div>
+	<%= render 'form' %>
+</div>
+<%= render :partial => "common/basket_hint" %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', tasks_path %>

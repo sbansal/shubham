@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  habit_id: 1
+  trace_date: 2012-01-01 21:23:35
+  trace_complete: false
+
+two:
+  habit_id: 1
+  trace_date: 2012-01-01 21:23:35
+  trace_complete: false
