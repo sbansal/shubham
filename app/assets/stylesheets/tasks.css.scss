@@ -13,5 +13,5 @@ span.taskname a:hover {color:#FFF;text-decoration:none;background-color:#000;tex
 #task_search_form {position:relative;}
 #task_search_form input#task_search_button {background: url(search_icon.png) top left no-repeat;width:16px;height:16px;
 	display:block;border:none;position:absolute;top:7px;right:7px;border-image:initial;}
-#task_search_form input#task_search_button:hover {background: url(search_icon.png) 40 0 no-repeat;}
+#task_search_form input#task_search_button:hover {background: url(search_icon.png) 0 -40 no-repeat;}
 #task_name.task_name_input {width:60%;}

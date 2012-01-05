@@ -14,8 +14,8 @@ body {
 }
 div.top-bar {width:100%;background:url('top.png') repeat-x top center;height:3px}
 .nav {float:right;font-size:0.875em;}
-.content {min-height: 100%;height: auto !important;height: 100%;margin: 0 auto -50px;padding:10px;width:75%;
-	font-size:0.875em;}
+.content {min-height: 100%;height: auto !important;height: 100%;margin: 0 auto -50px;padding:10px;
+	width:75%;font-size:0.875em;}
 .push {height: 100px;clear:both;}
 .header{padding:10px;margin:0 auto;font-size:1em;width:75%;height:100px;border-bottom:1px dashed #a0a0a0;}
 .footer {padding:10px;margin:0 auto;font-size:0.75em;width:75%;border-top:1px dashed #A0A0A0;height:50px;color:#B64926;text-align:right;}
@@ -91,6 +91,7 @@ div.remember_check label{font-size:0.75em;}
 
 textarea {font-family: 'Helvetica Neue', Helvetica, sans-serif;font-size:1em;}
 .float_right {float:right;}
+.float_left {float:left;}
 
 div.field input {font-size:1em;font-family: 'Helvetica Neue', Helvetica, sans-serif;padding:5px;}
 div.field p {font-weight:bold;}
@@ -111,6 +112,8 @@ p.alert {color:#C00;}
 .center_align {text-align:center;}
 .vert_align {vertical-align:middle;}
 
+.login_form {float:left;width:45%;padding:20px 10px 20px 30px;border-right:1px solid #B64926;}
+.new_sign_up_form {float:left;width:45%;padding:20px 0 20px 30px;}
 
 p, ol, ul, td {
   font-size: 1.125em;

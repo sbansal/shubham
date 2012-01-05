@@ -1,6 +1,6 @@
 <div class="form_container login_page">
-	<div class="new_user" style="float:left;">
-		<div style="float:left;width:45%;padding:20px 10px 20px 20px;border-right:1px solid #B64926;">
+	<div class="new_user float_left">
+		<div class="login_form">
 			<h1 class="form_header">Already have an account? Sign In here.</h1>
 			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 			  <div>
@@ -22,9 +22,9 @@
 			</div>
 			<% end %>
 		</div>
-		<div style="float:left;width:45%;padding:20px 0 20px 70px;">
-			<h1 class="form_header">Don't have an account yet? Get it here.</h1>
-			<%= link_to 'Sign Up for your FREE account here', new_user_registration_path, :class => 'button green primary mega'%>
+		<div class="new_sign_up_form">
+			<h1 class="form_header">Don't have an account yet? Get it here for FREE.</h1>
+			<%= link_to 'Sign Up for your account', new_user_registration_path, :class => 'button green primary mega'%>
 		</div>
 	</div>
 	
