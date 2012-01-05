@@ -13,13 +13,12 @@
 
   <div class="field">
 	<p>Habit Text</p>
-    <%= f.text_area :title , :rows => 8, :cols => 70%>
+    <%= f.text_area :title , :rows => 8, :class => 'habit_name_input'%>
   </div>
   <div class="actions">
     <%= f.submit 'Save Habit', :class => 'button big green' %>
 	<% unless @habit.new_record? %>
-		<%= link_to 'Delete Habit', @task, method: :delete, confirm: 'Are you sure you would like to delete the habit?
-		 All tracked data regarding this habit will also be deleted.', :class => 'button big red' %> 
+		<%= link_to 'Delete Habit', @task, method: :delete, confirm: 'Are you sure you would like to delete the habit? All tracked data regarding this habit will also be deleted.', :class => 'button big red' %> 
 	<% end %>
 	<span class="left-space">or</span>
 	<%= link_to 'Cancel', habits_path, :class => 'small_link' %>

@@ -40,7 +40,7 @@
   <div class="actions">
     <%= f.submit 'Save Task', :class => 'button big green' %>
 	<% unless @task.new_record? %>
-		<%= link_to 'Delete Task', @task, method: :delete, confirm: 'Are you sure you would like to delete the task?',
+		<%= link_to 'Delete Task', @task, method: :delete, confirm: 'Are you sure you would like to delete this task?',
 			 :class => 'button big red' %> 
 	<% end %>
 	<span class="left-space">or</span>
