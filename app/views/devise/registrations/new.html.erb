@@ -7,27 +7,30 @@
 
 		  <div>
 			<%= f.label 'Name', :class => 'placeholder' %><br/>
-			<%= f.text_field :fullname, :size => '50', :placeholder => 'John Doe' %>
+			<%= f.text_field :fullname, :placeholder => 'John Doe', :class => "new_user_text" %>
 		  </div>
 
 		  <div>
 			<%= f.label 'Email', :class => 'placeholder' %><br/>
-			<%= f.email_field :email, :size => '50', :placeholder => 'johndoe@gmail.com'  %>
+			<%= f.email_field :email, :placeholder => 'johndoe@gmail.com', :class => "new_user_text"  %>
 		  </div>
 
 		  <div>
 			<%= f.label 'Password', :class => 'placeholder' %><br/>
-			<%= f.password_field :password, :size => '50', :placeholder => 'password'  %>
+			<%= f.password_field :password, :placeholder => 'Password', :class => "new_user_text"  %>
 		  </div>
 
 		  <div>
+			<%= f.label :password_confirmation, :class => 'placeholder' %><br/>
+			<%= f.password_field :password_confirmation, :placeholder => 'Confirm Password', :class => "new_user_text"  %>
+		  </div>	
+		  
+		  <div>
 			<%= f.submit "Create My Account", :class => 'button green primary big' %> 
 			<span class="left-space">or</span>
-			<%= link_to 'Cancel', tasks_path, :class => 'small_link' %>
+			<%= link_to 'Cancel', root_path, :class => 'small_link' %>
 		  </div>
 		<% end %>
-
-		<!-- <%= render :partial => "devise/shared/links" %> -->
 	</div>
 </div>
 

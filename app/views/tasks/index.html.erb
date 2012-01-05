@@ -3,8 +3,9 @@
 	<span class="status" id="completed_tasks"><%= pluralize(@complete_tasks.count, 'Task') %> Completed</span>
 	<span class="status" id="incomplete_tasks"><%= pluralize(@incomplete_tasks.count, 'Task') %> Remaining</span>
 	<span class="task_form_search">
-		<%= form_tag tasks_path, :method => :get do %>
+		<%= form_tag tasks_path, :method => :get, :id => 'task_search_form' do %>
 			<%= text_field_tag 'Search','', :class => 'task_search', :placeholder => 'Search Tasks...'%>
+			<%= submit_tag "", :name => nil, :id => 'task_search_button' %>
 		<% end %>
 	</span>
 </div>

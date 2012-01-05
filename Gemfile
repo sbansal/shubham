@@ -25,6 +25,7 @@ group :production do
 end
 group :development do
  gem 'mysql2'
+ gem 'rack-google_analytics', :require => "rack/google_analytics"
 end
 
 gem 'jquery-rails'
