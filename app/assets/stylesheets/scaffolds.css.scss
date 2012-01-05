@@ -53,7 +53,7 @@ div.top-bar {width:100%;background:url('top.png') repeat-x top center;height:3px
 	color:#FFF;text-shadow:none}
 .status_blue {background-color:#2A65A0;}
 .status_green {background:#20CA20;}
-.status_red {background-color:#C00;}
+.status_red {background-color:#8E2800;}
 .status#completed_tasks {background-color:#468966;color:#FFF;text-shadow:none}
 .status#incomplete_tasks {background-color:#8E2800;color:#FFF;text-shadow:none}
 .clear {clear:both;}
@@ -114,6 +114,11 @@ p.alert {color:#C00;}
 
 .login_form {float:left;width:45%;padding:20px 10px 20px 30px;border-right:1px solid #B64926;}
 .new_sign_up_form {float:left;width:45%;padding:20px 0 20px 30px;}
+
+.admin_container {float:left;width:100%;}
+.user_info {margin-top:30px;}
+.admin_status_div {text-align:center;line-height:2em}
+.regular_font {font-size:1em}
 
 p, ol, ul, td {
   font-size: 1.125em;

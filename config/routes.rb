@@ -1,7 +1,9 @@
 Shubham::Application.routes.draw do
+
   resources :habits
 
   devise_for :users
+  resources :users
 
   resources :blogs
 
