@@ -22,9 +22,9 @@
 						:class => "button primary big #{"active" if params[:controller] == "users"}"%>
 				<% end %>
 
-				<%= link_to "Todo List", user_tasks_path(current_user), 
+				<%= link_to "Todo List", tasks_path, 
 					:class => "button primary big #{"active" if params[:controller] == "tasks"}"%>
-				<%= link_to "Manage Habits", user_habits_path(current_user), 
+				<%= link_to "Manage Habits", habits_path, 
 					:class => "button primary big #{"active" if params[:controller] == "habits"}"%>
 			</div>
 			
