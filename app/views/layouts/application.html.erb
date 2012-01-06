@@ -17,13 +17,15 @@
 				| <span><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></span>
 			</p>
 			<div class="float_right">
-				<!-- <%= link_to "HOME",tasks_path , :class => 'button primary big' %> -->
-				<%= link_to_if current_user.admin?, "Admin", users_path, 
-					:class => "button primary big #{"active" if params[:controller] == "users"}"%>
-				<%= link_to "Todo List", tasks_path, :class => "button primary big #{"active" if params[:controller] == "tasks"}"%>
-				<%= link_to "Manage Habits", habits_path, :class => "button primary big #{"active" if params[:controller] == "habits"}"%>
-				<!-- <%= link_to "NOTEBOOK", blogs_path, :class => "button primary big #{"active" if params[:controller] == "blogs"}"%> -->
-				<!-- <%= link_to "LOGOUT", destroy_user_session_path, :method => :delete, :class => 'button primary big'%> -->
+				<% if current_user.admin? %>
+					<%= link_to_if current_user.admin?, "Admin", users_path, 
+						:class => "button primary big #{"active" if params[:controller] == "users"}"%>
+				<% end %>
+
+				<%= link_to "Todo List", user_tasks_path(current_user), 
+					:class => "button primary big #{"active" if params[:controller] == "tasks"}"%>
+				<%= link_to "Manage Habits", user_habits_path(current_user), 
+					:class => "button primary big #{"active" if params[:controller] == "habits"}"%>
 			</div>
 			
 		<% else %>
