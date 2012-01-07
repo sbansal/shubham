@@ -10,11 +10,13 @@ class ApplicationController < ActionController::Base
   # user is being accessed then the session will store that accessed user
 
   def load_accessed_user
-    session[:accessed_user] = current_user.id
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      if @user
-        session[:accessed_user] = @user.id
+    if current_user
+      session[:accessed_user] = current_user.id
+      if params[:user_id]
+        @user = User.find(params[:user_id])
+        if @user
+          session[:accessed_user] = @user.id
+        end
       end
     end
   end
