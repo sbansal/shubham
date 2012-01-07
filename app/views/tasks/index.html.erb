@@ -1,9 +1,13 @@
+<%= content_for(:title, "Tracely - Tasks for #{@user.fullname}" )%>
 <div class="status_bar">
-	<span><%= link_to 'Add New Task', new_task_path, :class => 'button big icon add' %></span>
+	<% if @user == current_user %>
+		<span><%= link_to 'Add New Task', new_user_task_path(@user), :class => 'button big icon add' %></span>
+	<% end %>
+
 	<span class="status" id="completed_tasks"><%= pluralize(@complete_tasks.count, 'Task') %> Completed</span>
 	<span class="status" id="incomplete_tasks"><%= pluralize(@incomplete_tasks.count, 'Task') %> Remaining</span>
 	<span class="task_form_search">
-		<%= form_tag tasks_path, :method => :get, :id => 'task_search_form' do %>
+		<%= form_tag user_tasks_path(@user), :method => :get, :id => 'task_search_form' do %>
 			<%= text_field_tag 'Search','', :class => 'task_search', :placeholder => 'Search Tasks...'%>
 			<%= submit_tag "", :name => nil, :id => 'task_search_button' %>
 		<% end %>
@@ -12,7 +16,7 @@
 <% @tasks_by_date.each do |date,tasks| %>
   <h4 class="task_date"><%= date %> </h4>
   <% tasks.each do |task| %>
-	<%= render 'task_item', :task => task %>
+	<%= render 'task_item', :task => task, :user => @user %>
   <% end %>
 <% end %>
 

@@ -170,3 +170,21 @@ div {
   ul li {
     font-size: 0.75em;
     list-style: square; } }
+
+//***************************Error pages ****************************//
+div.error_dialog {
+  width:60%;
+  padding: 0 4em;
+  margin:  0px auto;
+}
+div.error_container h1 {color: #bc420d;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;font-size:1.75em;
+	line-height:1.3em;margin:40px;text-align:center;}
+div.error_container p {font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;text-align:left;font-size:1.25em;}
+div.error_container a {color:#bc420d;font-size:0.9em;}
+div.error_container p a:hover {background-color:#bc420d;color:#FFF;padding:5px;border-radius:3px;
+	-moz-border-radius:3px;-webkit-border-radius:3px;text-shadow:none;}
+div.error_container div.content {padding:10px;}
+div.error_container p.error_page_links {text-align:center;text-decoration:none;}
+div.error_container p.error_page_links a.blue {color:#2A65A0;}
+div.error_container p.error_page_links a.blue:hover {background-color:#2A65A0;color:#FFF;}
+

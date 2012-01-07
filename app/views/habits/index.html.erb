@@ -1,9 +1,12 @@
-<%= link_to 'Add New Habit', new_habit_path, :class => 'button big icon add' %>
+<%= content_for(:title, "Tracely - Habits for #{@user.fullname}" )%>
+<% if @user == current_user %>
+	<%= link_to 'Add New Habit', new_user_habit_path, :class => 'button big icon add' %>
+<% end%>
 <span class="status">Currently tracking <%= pluralize(@habits.count, 'Habit') %></span>
 <div class="clear"></div>
 <% @habits.each do |habit| %>
 <div class="habit_container" id="habit_<%= habit.id %>">
-	<%= render 'habit', :habit => habit %>
+	<%= render 'habit', :habit => habit, :user => @user %>
 </div>
 <% end %>
 

@@ -1,26 +1,44 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>Error 500 - Something went wrong</title>
+  <link href="/public/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
   <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+    body { background-color: #fff; color: #000; text-align: center;
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;background-image:url(../assets/graphy.png) }
     div.dialog {
-      width: 25em;
+      width:60%;
+	  height:500px;
       padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
+      margin:  0px auto;
     }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+	div.main_logo{text-align:center;margin-top:40px;}
+	div.main_logo img{border:none;}
+    h1 {color: #bc420d;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;font-size:1.75em;line-height:1.3em;margin:40px;}
+	p {font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;text-align:left;font-size:1.25em;}
+	a {color:#bc420d;font-size:0.9em;}
+	p a:hover {background-color:#bc420d;color:#FFF;padding:5px;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
+	div.content {padding:10px;}
+	p.links {text-align:center;}
+	p.links a.blue {color:#2A65A0;}
+	p.links a.blue:hover {background-color:#2A65A0;color:#FFF;}
   </style>
 </head>
 
-<body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <h1>We're sorry, but something went wrong.</h1>
-    <p>We've been notified about this issue and we'll take a look at it shortly.</p>
-  </div>
-</body>
-</html>
+<body> -->
+<%= content_for(:title, "Error 500 - Something went wrong" )%>
+<div class="error_dialog">
+	<!-- <div class ="main_logo"><a href="/"><img src="/assets/tracely_logo.png" alt="Tracely_logo"></a></div> -->
+	<div class ="error_container">
+		<h1>We're sorry, but this was not suppose to happen.</h1>
+		<p class="error_page_message">Looks like something went wrong and we have been notified about it. If you would like, you can send a 
+			<a href ="http://www.youtube.com/watch?v=SYMys0XnuDc" target="_blank">Howler</a> directly to 
+			<a href = "mailto:shubham@hautworks.com">Shub</a> who makes sure the 
+			site is free from bugs. <i>Make sure you give him a nice shout, that cocky son of a gun.</i></p>
+		<p class="error_page_links"><a class="blue" href="/"> &larr;Take me back to the good stuff.</a></p>
+		<p class="error_page_links">OR</p>
+		<p class="error_page_links"><a href="http://google.com" target="_blank">Google</a></p>
+		<p class="error_page_links"><a href="http://wikipedia.org" target="_blank">Wikipedia</a></p>
+		<p class="error_page_links"><a href="http://twitter.com" target="_blank">Twitter</a></p>
+	</div>
+</div>

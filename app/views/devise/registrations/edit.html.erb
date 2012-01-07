@@ -1,3 +1,4 @@
+<%= content_for(:title, "Tracely - Account Details for #{resource.fullname}" )%>
 <div class="form_container">
 	<div class="new_user">
 		<h1 class="form_header">Edit your account details.</h1>
@@ -6,7 +7,7 @@
 		  <%= devise_error_messages! %>
 
 		  <div><%= f.label :Name %><br />
-		  <%= f.email_field :fullname , :class => "new_user_text"%></div>
+		  <%= f.text_field :fullname , :class => "new_user_text"%></div>
 		
 		  <div><%= f.label :email %><br />
 		  <%= f.email_field :email , :class => "new_user_text"%></div>
@@ -22,7 +23,7 @@
 
 		  <div><%= f.submit "Update your profile", :class => 'button big green' %>
 		  <span class="left-space">or</span>
-		  <%= link_to 'Cancel', tasks_path, :class => 'small_link' %></div>
+		  <%= link_to 'Cancel', root_path, :class => 'small_link' %></div>
 		<% end %>
 
 

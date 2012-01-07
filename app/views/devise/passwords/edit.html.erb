@@ -1,16 +1,21 @@
-<h2>Change your password</h2>
+<%= content_for(:title, "Tracely - Change your password" )%>
+<div class="form_container">
+	<h1 class="form_header">Change your password?</h1>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+	<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+	  <%= devise_error_messages! %>
+	  <%= f.hidden_field :reset_password_token %>
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password %></div>
+	  <div><p>Enter your New Password.</p>
+	  <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
+	  <div><p>Confirm your New Password.</p>
+	  <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
+	  <div><%= f.submit "Change my password", :class => 'button big green' %>
+		<span class="left-space">or</span>
+		<%= link_to 'Cancel', new_user_session_path, :class => 'small_link' %>
+	  </div>
+	<% end %>
 
-<%= render :partial => "devise/shared/links" %>
+</div>

@@ -1,10 +1,11 @@
-<h4 class="habit_header"><%= link_to "#{habit.title.upcase}", edit_habit_path(habit) %> </h4>
+<h4 class="habit_header"><%= link_to_if user == current_user, "#{habit.title.upcase}", edit_user_habit_path(current_user, habit) %> </h4>
 <div class="clear"></div>
 <% if habit.traces.empty? %>
-	<%= render "habits/calendar_month", :month => Time.now.utc.beginning_of_month, :traces => [], :habit => habit %>
+	<%= render "habits/calendar_month", :month => Time.now.utc.beginning_of_month, :traces => [], :habit => habit, 
+		:display_link => (user == current_user) %>
 <% else %>
 	<% habit.traces.group_by {|t| t.trace_date.beginning_of_month}.each do |month, traces|%>
-		<%= render "habits/calendar_month", :month => month, :traces => traces, :habit => habit%>
+		<%= render "habits/calendar_month", :month => month, :traces => traces, :habit => habit, :display_link => (user == current_user) %>
 	<% end %>
 <% end %>
 <div class="clear"></div>

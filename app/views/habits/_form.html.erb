@@ -1,4 +1,4 @@
-<%= form_for(@habit) do |f| %>
+<%= form_for([current_user, @habit]) do |f| %>
   <% if @habit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@habit.errors.count, "error") %> prohibited this habit from being saved:</h2>
@@ -18,9 +18,9 @@
   <div class="actions">
     <%= f.submit 'Save Habit', :class => 'button big green' %>
 	<% unless @habit.new_record? %>
-		<%= link_to 'Delete Habit', @task, method: :delete, confirm: 'Are you sure you would like to delete the habit? All tracked data regarding this habit will also be deleted.', :class => 'button big red' %> 
+		<%= link_to 'Delete Habit', [current_user, @task], method: :delete, confirm: 'Are you sure you would like to delete the habit? All tracked data regarding this habit will also be deleted.', :class => 'button big red' %> 
 	<% end %>
 	<span class="left-space">or</span>
-	<%= link_to 'Cancel', habits_path, :class => 'small_link' %>
+	<%= link_to 'Cancel', user_habits_path, :class => 'small_link' %>
   </div>
 <% end %>

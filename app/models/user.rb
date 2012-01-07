@@ -10,8 +10,12 @@ class User < ActiveRecord::Base
          :validatable, :email_regexp =>  /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
          
   validates_uniqueness_of :email
-  validates_presence_of :fullname, :email, :password, :message => '*required field'
+  validates_presence_of :fullname, :email, :message => '*required field'
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :fullname
+  
+  def to_param
+    "#{id}-#{fullname.gsub(/[^a-z0-9]+/i, '-')}"
+  end
 end

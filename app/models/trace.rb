@@ -49,7 +49,7 @@ class Trace < ActiveRecord::Base
     trace_str
   end
   
-  def self.calender_date(traces, month, i, j, habit)
+  def self.calender_date(traces, month, i, j, habit, display_link)
     trace_str = ""
     num = (i*7 + j) - month.wday - 1
     date = month + num.days
@@ -58,12 +58,12 @@ class Trace < ActiveRecord::Base
     #       trace_str = date.day
     #     end
     if trace
-      TracesHelper.link_to_update_trace("", trace.id)
+      TracesHelper.link_to_update_trace("", trace.id, display_link)
     else
       if date > DateTime.now || date < habit.created_at.beginning_of_day
         date.day
       else
-        TracesHelper.link_to_create_trace(date.day, habit, date)
+        TracesHelper.link_to_create_trace(date.day, habit, date, display_link)
       end
     end
   end

@@ -1,13 +1,18 @@
 Shubham::Application.routes.draw do
 
-  resources :habits
+  #resources :habits
 
-  devise_for :users
-  resources :users
+  devise_for :users do
+    get "/account" => "devise/registrations#edit"
+  end
+  resources :users do
+    resources :tasks
+    resources :habits
+  end
 
   resources :blogs
 
-  resources :tasks
+  #resources :tasks
 
   resources :folders
   

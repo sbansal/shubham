@@ -1,7 +1,8 @@
 <div id="task_<%= task.id%>" class="task">
-	<!-- <span><%= link_to image_tag('trash_stroke_12x12.png'), task, confirm: 'Are you sure?',method: :delete, :class => 'delete_link' %></span> -->
-	<span><%= check_box_tag task.id, task.complete, task.complete, :class => 'task_check' %></span>
-	<span class="taskname"><%= link_to task.name, edit_task_path(task)%></span>
+	<span>
+		<%= check_box_tag task.id, task.complete, task.complete, :class => 'task_check', :disabled => (current_user != user) %>
+	</span>
+	<span class="taskname"><%= link_to_if current_user == user, task.name, edit_user_task_path(user,task)%></span>
 	<% task.baskets.each do |basket| %>
 		<span class="basket <%= basket.css_property(basket.name) %>"><%= basket.name %></span>
 	<% end %>

@@ -6,7 +6,7 @@
 				<% if Trace.empty_day(month, i, j) %>
 					<div class="day <%=  Trace.css(month,i,j)%> ">
 						<span class="circle <%=  Trace.run_trace(traces,month,i,j)%>">
-							<%= Trace.calender_date(traces,month,i,j, habit) %>
+							<%= Trace.calender_date(traces,month,i,j, habit, display_link) %>
 						</span>
 					</div>
 				<% else%>

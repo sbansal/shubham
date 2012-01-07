@@ -1,4 +1,4 @@
-<%= form_for(@task) do |f| %>
+<%= form_for([current_user, @task]) do |f| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -40,10 +40,10 @@
   <div class="actions">
     <%= f.submit 'Save Task', :class => 'button big green' %>
 	<% unless @task.new_record? %>
-		<%= link_to 'Delete Task', @task, method: :delete, confirm: 'Are you sure you would like to delete this task?',
+		<%= link_to 'Delete Task', [current_user, @task], method: :delete, confirm: 'Are you sure you would like to delete this task?',
 			 :class => 'button big red' %> 
 	<% end %>
 	<span class="left-space">or</span>
-	<%= link_to 'Cancel', tasks_path, :class => 'small_link' %>
+	<%= link_to 'Cancel', user_tasks_path, :class => 'small_link' %>
   </div>
 <% end %>
