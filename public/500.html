@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>Error 500 - Something went wrong</title>
@@ -25,20 +25,22 @@
   </style>
 </head>
 
-<body> -->
-<%= content_for(:title, "Error 500 - Something went wrong" )%>
-<div class="error_dialog">
-	<!-- <div class ="main_logo"><a href="/"><img src="/assets/tracely_logo.png" alt="Tracely_logo"></a></div> -->
-	<div class ="error_container">
+<body>
+<div class="dialog">
+	<div class ="main_logo"><a href="/"><img src="/assets/tracely_logo.png" alt="Tracely_logo"></a></div>
+	<div class ="content">
 		<h1>We're sorry, but this was not suppose to happen.</h1>
-		<p class="error_page_message">Looks like something went wrong and we have been notified about it. If you would like, you can send a 
+		<p>Looks like something went wrong and we have been notified about it. If you would like, you can send a 
 			<a href ="http://www.youtube.com/watch?v=SYMys0XnuDc" target="_blank">Howler</a> directly to 
 			<a href = "mailto:shubham@hautworks.com">Shub</a> who makes sure the 
 			site is free from bugs. <i>Make sure you give him a nice shout, that cocky son of a gun.</i></p>
-		<p class="error_page_links"><a class="blue" href="/"> &larr;Take me back to the good stuff.</a></p>
-		<p class="error_page_links">OR</p>
-		<p class="error_page_links"><a href="http://google.com" target="_blank">Google</a></p>
-		<p class="error_page_links"><a href="http://wikipedia.org" target="_blank">Wikipedia</a></p>
-		<p class="error_page_links"><a href="http://twitter.com" target="_blank">Twitter</a></p>
+		<p class="links"><a class="blue" href="/"> &larr;Take me back to the good stuff.</a></p>
+		<p style="text-align:center">OR</p>
+		<p style="text-align:center"><a style="text-decoration:none" href="http://google.com" target="_blank">Google</a></p>
+		<p style="text-align:center"><a style="text-decoration:none" href="http://wikipedia.org" target="_blank">Wikipedia</a></p>
+		<p style="text-align:center"><a style="text-decoration:none" href="http://twitter.com" target="_blank">Twitter</a></p>
 	</div>
-</div>
+    
+  </div>
+</body>
+</html>
