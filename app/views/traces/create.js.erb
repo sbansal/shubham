@@ -1,1 +1,1 @@
-$("#habit_<%= @trace.habit.id %>").html("<%= escape_javascript(render 'habits/habit', :habit => @trace.habit) %>");
+$("#habit_<%= @trace.habit.id %>").html("<%= escape_javascript(render 'habits/habit', :habit => @trace.habit, :user => current_user) %>");
