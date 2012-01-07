@@ -106,8 +106,8 @@ class TasksController < ApplicationController
     authorize_access
     @task = Task.find(params[:id])
     @task.update_attributes(:complete => params[:checked])
-    @complete_tasks = Task.complete
-    @incomplete_tasks = Task.incomplete
+    @complete_tasks = current_user.tasks.complete
+    @incomplete_tasks = current_user.tasks.incomplete
   end
 
 end
