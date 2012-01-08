@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108005820) do
+ActiveRecord::Schema.define(:version => 20120108190758) do
 
   create_table "basketizations", :force => true do |t|
     t.integer  "task_id"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20120108005820) do
     t.boolean  "trace_complete"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "tracedate"
   end
 
   create_table "users", :force => true do |t|

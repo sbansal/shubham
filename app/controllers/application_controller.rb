@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :load_accessed_user
+  before_filter :load_accessed_user, :set_user_time_zone
   
   private 
   # This method loads the user for which the information is being loaded
@@ -39,6 +39,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       if current_user.timezone
         Time.zone = current_user.timezone
+        # logger.info "------- Date after time zone set to " + Time.zone.to_s + " = " + Date.today.in_time_zone.to_s + " -----------"
       end
     end
   end

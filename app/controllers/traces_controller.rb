@@ -4,7 +4,7 @@ class TracesController < ApplicationController
   
   def create
     @trace = Trace.new(:habit_id => params[:habit_id], 
-      :trace_date => params[:trace_date], :trace_complete => true)
+      :tracedate => params[:tracedate], :trace_complete => true)
     @trace.save
   end
   

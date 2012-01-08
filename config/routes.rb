@@ -18,7 +18,7 @@ Shubham::Application.routes.draw do
   
   match "/update_task", :to => "tasks#update_task"
   match "/update_trace/:id", :to => "traces#update"
-  match "/create_trace/:habit_id/:trace_date", :to => "traces#create"
+  match "/create_trace/:habit_id/:tracedate", :to => "traces#create"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
