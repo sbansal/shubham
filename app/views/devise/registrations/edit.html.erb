@@ -12,15 +12,21 @@
 		  <div><%= f.label :email %><br />
 		  <%= f.email_field :email , :class => "new_user_text"%></div>
 
-		  <div><%= f.label :password %> <i class="form_hint">(leave blank if you don't want to change it)</i><br />
+		  <div><%= f.label :password %> <i>(*leave blank if you don't want to change it)</i><br />
 		  <%= f.password_field :password, :class => "new_user_text" %></div>
 
 		  <div><%= f.label :password_confirmation %><br />
 		  <%= f.password_field :password_confirmation, :class => "new_user_text" %></div>
 
-		  <div><%= f.label :current_password %> <i class="form_hint">(we need your current password to confirm your changes)</i><br />
+		  <div><%= f.label :current_password %> <i>(*we need your current password to confirm your changes)</i><br />
 		  <%= f.password_field :current_password, :class => "new_user_text" %></div>
+		
+		  <div>
+			<%= f.label :timezone, :class => 'placeholder' %><br/>
+			<%= f.time_zone_select :timezone, ActiveSupport::TimeZone.all %>
+		  </div>
 
+		  
 		  <div><%= f.submit "Update your profile", :class => 'button big green' %>
 		  <span class="left-space">or</span>
 		  <%= link_to 'Cancel', root_path, :class => 'small_link' %></div>

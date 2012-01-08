@@ -24,7 +24,12 @@
 		  <div>
 			<%= f.label :password_confirmation, :class => 'placeholder' %><br/>
 			<%= f.password_field :password_confirmation, :placeholder => 'Confirm Password', :class => "new_user_text"  %>
-		  </div>	
+		  </div>
+		
+		  <div>
+			<%= f.label :timezone, :class => 'placeholder' %><br/>
+			<%= f.time_zone_select :timezone, ActiveSupport::TimeZone.all, :default => "Central Time (US & Canada)" %>
+		  </div>
 		  
 		  <div>
 			<%= f.submit "Create My Account", :class => 'button green primary big' %> 

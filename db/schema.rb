@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120105174607) do
+ActiveRecord::Schema.define(:version => 20120108005820) do
 
   create_table "basketizations", :force => true do |t|
     t.integer  "task_id"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20120105174607) do
     t.datetime "updated_at"
     t.string   "fullname"
     t.boolean  "admin"
+    t.string   "timezone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
