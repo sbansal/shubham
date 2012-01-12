@@ -6,11 +6,11 @@
 	  <%= devise_error_messages! %>
 	  <%= f.hidden_field :reset_password_token %>
 
-	  <div><p>Enter your New Password.</p>
-	  <%= f.password_field :password %></div>
+	  <div class="field"><p>Enter your New Password.</p>
+	  <%= f.password_field :password, :placeholder => 'New Password', :class => 'new_user_text' %></div>
 
-	  <div><p>Confirm your New Password.</p>
-	  <%= f.password_field :password_confirmation %></div>
+	  <div class="field"><p>Confirm your New Password.</p>
+	  <%= f.password_field :password_confirmation, :placeholder => 'Confirm Password', :class => 'new_user_text' %></div>
 
 	  <div><%= f.submit "Change my password", :class => 'button big green' %>
 		<span class="left-space">or</span>

@@ -12,10 +12,10 @@
   Basket.find_or_create_by_name(basket)
 end
 
-Trace.all.each do |trace|
-  date = Date.parse(trace.trace_date.to_s)
-  trace.update_attribute(:tracedate, date)
-end
+# Trace.all.each do |trace|
+#   date = Date.parse(trace.trace_date.to_s)
+#   trace.update_attribute(:tracedate, date)
+# end
 
 # 30.downto(1).each do |i|
 #   @date = i.days.ago.beginning_of_day

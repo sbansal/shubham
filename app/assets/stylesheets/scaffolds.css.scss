@@ -96,6 +96,7 @@ textarea {font-family: 'Helvetica Neue', Helvetica, sans-serif;font-size:1em;}
 .float_left {float:left;}
 
 div.field input {font-size:1em;font-family: 'Helvetica Neue', Helvetica, sans-serif;padding:5px;}
+div.field input.new_user_text {width:50%;}
 div.field p {font-weight:bold;}
 .form_hint {font-size:0.8em;color:#777;text-shadow:none;font-style:italic;vertical-align:middle;}
 div.seperator {border:1px solid #B64926;margin-bottom:20px;text-shadow: 0 1px 0 white;}
@@ -172,7 +173,7 @@ div {
     font-size: 0.75em;
     list-style: square; } }
 
-//***************************Error pages ****************************//
+/***************************Error pages ****************************/
 div.error_dialog {
   width:60%;
   padding: 0 4em;
@@ -188,4 +189,14 @@ div.error_container div.content {padding:10px;}
 div.error_container p.error_page_links {text-align:center;text-decoration:none;}
 div.error_container p.error_page_links a.blue {color:#2A65A0;}
 div.error_container p.error_page_links a.blue:hover {background-color:#2A65A0;color:#FFF;}
+/************************************************* EMAIL TEMPLATES ****************************************************/
+div.email_container {font-family:Helvetica Neue,Helvetica, Arial, sans-serif;background-color:#fef9e2;}
+div.email_body {color:#000;padding:20px;}
+div.logo_image_container {text-align:center}
+div.email_body_content {border:1px solid #000;margin-top:20px;color:#FFF;padding:20px;border-radius:10px}
+div.email_body_content p.email_body_title {font-size:2em;margin:10px 0 0 0}
+div.email_body_content p.email_body_intro {font-size:1em;line-height:1.5em}
+.email_text {font-size:1em}
+ul.email_hautplate_features {font-size:1em;line-height:1.3em;color:#F6CC66}
+div.email_contact {font-size:0.75em;margin-top:5px;text-align:center}
 

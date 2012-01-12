@@ -1,5 +1,13 @@
 Shubham::Application.routes.draw do
 
+  get "pages/main"
+
+  get "pages/about"
+
+  get "pages/contact"
+
+  get "pages/faq"
+
   #resources :habits
 
   devise_for :users do
