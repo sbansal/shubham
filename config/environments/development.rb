@@ -18,7 +18,8 @@ Shubham::Application.configure do
   #mailer host for devise emails
   #In prod this should be the actual host of the application
   config.action_mailer.default_url_options = { :host => 'shubham.dev' }
-  config.action_mailer.asset_host = "http://shubham.dev"
+  # config.action_mailer.asset_host = "http://shubham.dev"
+  config.action_controller.asset_host = "https://tracely-dev-assets.s3.amazonaws.com"
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
