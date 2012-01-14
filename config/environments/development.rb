@@ -17,7 +17,7 @@ Shubham::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   #mailer host for devise emails
   #In prod this should be the actual host of the application
-  config.action_mailer.default_url_options = { :host => 'shubham.dev' }
+  config.action_mailer.default_url_options = { :host => 'tracely.dev' }
   # config.action_mailer.asset_host = "http://shubham.dev"
   config.action_controller.asset_host = "https://tracely-dev-assets.s3.amazonaws.com"
 
