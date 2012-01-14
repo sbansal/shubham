@@ -1,8 +1,8 @@
 AssetSync.configure do |config|
   config.fog_provider = 'AWS'
-  config.aws_access_key_id = ENV['AWS_ACCESS_KEY_ID']
-  config.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
-  config.fog_directory = ENV['FOG_DIRECTORY']
+  config.aws_access_key_id = 'AKIAJ6VMTPKJOGWKTHAA'
+  config.aws_secret_access_key = 'kZ2bH7vIQ3MbqYeh0vuoi33MYqzSG5gMcw+8GYXk'
+  config.fog_directory = 'tracely-assets'
   
   # Increase upload performance by configuring your region
   # config.fog_region = 'eu-west-1'
