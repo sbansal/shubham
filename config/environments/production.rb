@@ -25,7 +25,7 @@ Shubham::Application.configure do
 
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -60,4 +60,5 @@ Shubham::Application.configure do
   config.active_support.deprecation = :notify
   
   config.action_mailer.default_url_options = { :host => 'trace.ly' }
+  config.action_mailer.asset_host = "https://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
 end
