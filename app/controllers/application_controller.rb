@@ -35,13 +35,14 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       if current_user.timezone
         Time.zone = current_user.timezone
-        # logger.info "------- Date after time zone set to " + Time.zone.to_s + " = " + Date.today.in_time_zone.to_s + " -----------"
       end
     end
   end
 
   def store_location
-      session[:user_return_to] = request.url unless params[:controller] == "devise/sessions"
+    # unless the stored location is the devise controller or pages controller we will store the location
+    # don't redirect to the pages controller after successful sign in. Those are static pages
+    session[:user_return_to] = request.url unless (params[:controller] == "devise/sessions" || params[:controller] == "pages")
   end
 
   def after_sign_in_path_for(resource)
