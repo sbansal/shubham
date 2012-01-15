@@ -355,6 +355,12 @@ http://github.com/necolas/css3-github-buttons
 }
 .button.mega.icon:before { top: 0; }
 
+.button.extrabig {
+    font-size: 1.25em; 
+	line-height:1.5em;
+}
+.button.extrabig.icon:before { top: 0; }
+
 /* ------------------------------------------------------------------------------------------------------------- BUTTON GROUPS */
 
 /* ............................................................................................................. Standard */

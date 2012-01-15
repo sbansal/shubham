@@ -16,10 +16,8 @@ div.top-bar {width:100%;background:url('top.png') repeat-x top center;height:3px
 .nav {float:right;font-size:0.875em;}
 .content {min-height: 100%;height: auto !important;height: 100%;margin: 0 auto -50px;padding:10px;
 	width:75%;font-size:0.875em;}
-.push {height: 100px;clear:both;}
+.push {height: 75px;clear:both;}
 .header{padding:10px;margin:0 auto;font-size:1em;width:75%;height:100px;border-bottom:1px dashed #a0a0a0;}
-.footer {padding:10px;margin:0 auto;font-size:0.75em;width:75%;border-top:1px dashed #A0A0A0;height:50px;color:#B64926;text-align:right;}
-.footer a {color:#B64926;}
 
 .button-group a.button.primary.big{text-decoration:none;text-shadow:none;}
 //	&.selected {background-color:#2A65A0; color:#FFF;background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#2A65A0), to(#2A65A0));}}
@@ -172,6 +170,16 @@ div {
   ul li {
     font-size: 0.75em;
     list-style: square; } }
+
+.footer {padding:10px;margin:0 auto;font-size:0.75em;width:75%;border-top:1px dashed #A0A0A0;height:50px;color:#B64926;text-align:right;}
+.footer a {color:#B64926;}
+div.footer_content{margin:0 auto;color:#B64926;font-size:0.9em;}
+div.footer ul.copyright{float:right;list-style-type:none;padding:0;margin:6px 0 6px 0;}
+div.footer ul.footer_links{list-style-type:none;float:left;padding:0;margin:6px 10px 6px 0;}
+div.footer ul li{padding:0 8px 0 8px;float:left;}
+div.footer ul li a{text-decoration:none;padding:2px}
+div.footer ul li a img{border:none;}
+div.footer ul li a:hover{font-size:12px;color:#FFF;background-color:#B64926;text-shadow:none;padding:2px;border-radius:2px;}
 
 /***************************Error pages ****************************/
 div.error_dialog {

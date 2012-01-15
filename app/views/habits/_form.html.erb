@@ -18,7 +18,7 @@
   <div class="actions">
     <%= f.submit 'Save Habit', :class => 'button big green' %>
 	<% unless @habit.new_record? %>
-		<%= link_to 'Delete Habit', [current_user, @task], method: :delete, confirm: 'Are you sure you would like to delete the habit? All tracked data regarding this habit will also be deleted.', :class => 'button big red' %> 
+		<%= link_to 'Delete Habit', [current_user, @habit], method: :delete, confirm: 'Are you sure you would like to delete the habit? All tracked data regarding this habit will also be deleted.', :class => 'button big red' %> 
 	<% end %>
 	<span class="left-space">or</span>
 	<%= link_to 'Cancel', user_habits_path, :class => 'small_link' %>
