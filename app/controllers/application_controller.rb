@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :load_accessed_user, :set_user_time_zone
+  before_filter :load_accessed_user, :set_user_time_zone, :store_location
   
   private 
   # This method loads the user for which the information is being loaded
@@ -21,10 +21,6 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def current_ability
-    @current_ability ||= Ability.new(current_user, session[:accessed_user])
-  end
-  
   # This method will check of the user has the authorization to access this page else 
   # redirected to the root page
   # TODO - Point to the error page
@@ -42,6 +38,18 @@ class ApplicationController < ActionController::Base
         # logger.info "------- Date after time zone set to " + Time.zone.to_s + " = " + Date.today.in_time_zone.to_s + " -----------"
       end
     end
+  end
+
+  def store_location
+      session[:user_return_to] = request.url unless params[:controller] == "devise/sessions"
+  end
+
+  def after_sign_in_path_for(resource)
+      stored_location_for(resource) || user_tasks_path(resource)
+  end
+  
+  def after_sign_out_path_for(resource_or_scope)
+    new_user_session_path
   end
   
 end
