@@ -10,10 +10,6 @@ class TracesController < ApplicationController
   
   def update
     @trace = Trace.find(params[:id])
-    if @trace.trace_complete
-      @trace.update_attributes(:trace_complete => false)
-    else
-      @trace.destroy
-    end
+    @trace.update_attributes(:trace_complete => !@trace.trace_complete)
   end
 end
