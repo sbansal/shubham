@@ -11,7 +11,7 @@ span.taskname a:hover {color:#FFF;text-decoration:none;background-color:#000;tex
 	box-shadow: 0 1px 2px rgba(0,0,0,0.1);border:solid 1px #bbb;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px}
 .task_form_search {float:right;}
 #task_search_form {position:relative;}
-#task_search_form input#task_search_button {background: image-url('search_icon.png') top left no-repeat;width:16px;height:16px;
+#task_search_form input#task_search_button {background: url('search_icon.png') top left no-repeat;width:16px;height:16px;
 	display:block;border:none;position:absolute;top:7px;right:7px;border-image:initial;}
-#task_search_form input#task_search_button:hover {background: image-url('search_icon.png') 0 -40 no-repeat;}
+#task_search_form input#task_search_button:hover {background: url('search_icon.png') 0 -40 no-repeat;}
 #task_name.task_name_input {width:60%;}
