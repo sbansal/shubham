@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :load_accessed_user, :set_user_time_zone, :store_location
+  
+  before_filter :load_accessed_user, :set_user_time_zone, :store_location, :load_tweet
+  
+  def load_tweet
+    @tweet = Twitter.user_timeline("tracelyapp").first
+  end
   
   private 
   # This method loads the user for which the information is being loaded

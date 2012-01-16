@@ -46,12 +46,18 @@
 	<div class="footer_content">
 		<ul class="footer_links">
 			<li><%= link_to 'HOME', root_path %></li>
-			<li><%= link_to 'BLOG', "http://blog.trace.ly", :target => "_blank"%></li>
-			<li><%= mail_to 'support@hautworks.com', 'CONTACT'%></li>	
+			<!-- <li><%= link_to 'BLOG', "http://blog.trace.ly", :target => "_blank"%></li> -->
+			<li><%= mail_to 'support@hautworks.com', 'CONTACT'%></li>
+			<li>Copyright © 2011 <%= link_to 'HautWorks', 'http://hautworks.com', :target => '_blank' %></li>
 		</ul>
 		<ul class="copyright">
-			<li>Copyright © 2011 <%= link_to 'HautWorks', 'http://hautworks.com', :target => '_blank' %><br/>All Rights Reserved.</li>
+			<li><%= image_tag('twitter.png') %></li>				
+			<li class="twitter_feed">
+				<%= link_to'@Tracelyapp', 'http://twitter.com/#!/tracelyapp', :target => '_blank'%>
+				<span> - <%= @tweet.text %></span>
+			</li>
 		</ul>
+		
 		
 	</div>
 </div>

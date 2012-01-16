@@ -9,7 +9,7 @@ gem 'devise'
 
 gem 'client_side_validations'
 
-gem 'hirb'
+gem 'twitter'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,6 +24,7 @@ group :production do
  gem 'rack-google_analytics', :require => "rack/google_analytics"
 end
 group :development do
+ gem 'hirb'
  gem 'mysql2'
  gem 'rack-google_analytics', :require => "rack/google_analytics"
 end
