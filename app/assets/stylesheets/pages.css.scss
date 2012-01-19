@@ -1,12 +1,15 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-div.main_page_top {float:left;line-height:1.5em;}
-span.main_page_header {font-size:2.25em;line-height:1.5em;font-weight:normal;vertical-align:middle;text-align:center;color:#B64926;
-	margin-bottom:10px;}
-span.main_page_register_link{margin-left:20px;line-height:1.5em;}
-div.main_page_image {border:1px solid #000;width:574px;margin:20px auto;padding:10px}
-div.features {float:left;background-color:#FFDFA4;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;}
-div.feature_container{float:left;padding:0 20px;width:45%;margin:10px 0}
+div.main_page_top {float:left;line-height:1.5em;padding:0 0 0 15px}
+p.main_page_header {line-height:1.5em;font-weight:bold;vertical-align:middle;text-align:center;color:#B64926;
+	font-size:1.5em;margin-bottom:40px;}
+p.main_page_register_link{margin-left:20px;line-height:1.5em;text-align:center}
+div.main_page_image {border:1px solid #555;width:574px;padding:10px; float:left;-moz-box-shadow: 0 0 5px #555;
+	-webkit-box-shadow: 0 0 5px #555;box-shadow: 0 0 10px #555;border-radius:4px;margin-left:5px;-moz-border-radius:4px;
+	-webkit-border-radius:4px;}
+div.features {float:left;background-color:#FFDFA4;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
+	margin-top:20px;width:100%;}
+div.feature_container{float:left;padding:0 0 0 17px;width:31%;margin:10px 0}
 div.feature_container h3 {color:#8E2800;text-decoration:underline}
 div.feature_container p {font-size:0.9em}
