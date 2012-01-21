@@ -5,12 +5,16 @@ class ApplicationController < ActionController::Base
   before_filter :load_accessed_user, :set_user_time_zone, :store_location, :load_tweet
   
   def load_tweet
-    @tweet = Twitter.user_timeline("tracelyapp").first
-    @twext = @tweet.text.gsub( %r{http://[^\s<]+} ) do |url|
-      if url[/(?:png|jpe?g|gif|svg)$/]
-      else
-        "<a href='#{url}'>#{url}</a>"
+    begin
+      @tweet = Twitter.user_timeline("tracelyapp").first
+      @twext = @tweet.text.gsub( %r{http://[^\s<]+} ) do |url|
+        if url[/(?:png|jpe?g|gif|svg)$/]
+        else
+          "<a href='#{url}'>#{url}</a>"
+        end
       end
+    rescue
+      @twext = 'Welcome to Tracely'
     end
   end
   
