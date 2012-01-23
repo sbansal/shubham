@@ -1,0 +1,43 @@
+<%= content_for(:title, "Tracely - Free Sign Up" )%>
+<div class="form_container">
+	<div class="new_user">
+		<h1 class="form_header">Please fill in the following details to get your FREE Tracely account.</h1>
+
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),:validate => true) do |f| %>
+		  <%= devise_error_messages! %>
+
+		  <div>
+			<%= f.label 'Name', :class => 'placeholder' %><br/>
+			<%= f.text_field :fullname, :placeholder => 'John Doe', :class => "new_user_text" %>
+		  </div>
+
+		  <div>
+			<%= f.label 'Email', :class => 'placeholder' %><br/>
+			<%= f.email_field :email, :placeholder => 'johndoe@gmail.com', :class => "new_user_text"  %>
+		  </div>
+
+		  <div>
+			<%= f.label 'Password', :class => 'placeholder' %><br/>
+			<%= f.password_field :password, :placeholder => 'Password', :class => "new_user_text"  %>
+		  </div>
+
+		  <div>
+			<%= f.label :password_confirmation, :class => 'placeholder' %><br/>
+			<%= f.password_field :password_confirmation, :placeholder => 'Confirm Password', :class => "new_user_text"  %>
+		  </div>
+		
+		  <div>
+			<%= f.label :timezone, :class => 'placeholder' %><br/>
+			<%= f.time_zone_select :timezone, ActiveSupport::TimeZone.all, :default => "Central Time (US & Canada)" %>
+		  </div>
+		  
+		  <div>
+			<%= f.submit "Create My Account", :class => 'button green primary big' %> 
+			<span class="left-space">or</span>
+			<%= link_to 'Cancel', root_path, :class => 'small_link' %>
+		  </div>
+		<% end %>
+	</div>
+</div>
+
+

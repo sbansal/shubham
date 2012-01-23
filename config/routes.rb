@@ -1,5 +1,5 @@
 Shubham::Application.routes.draw do
-
+  
   get "pages/main"
 
   get "pages/about"
@@ -9,10 +9,12 @@ Shubham::Application.routes.draw do
   get "pages/faq"
 
   #resources :habits
-
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  
   devise_for :users do
-    get "/account" => "devise/registrations#edit"
+    get "/account" => "registrations#edit"
   end
+  
   resources :users do
     resources :tasks
     resources :habits
@@ -78,6 +80,13 @@ Shubham::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'pages#main'
+  resque_constraint = lambda do |request|
+    request.env['warden'].authenticate? and request.env['warden'].user.admin?
+  end
+  
+  constraints resque_constraint do
+    match "/delayed_job" => DelayedJobWeb, :anchor => false
+  end
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,0 +1,43 @@
+<%= content_for(:title, "Tracely - Account Details for #{resource.fullname}" )%>
+<div class="form_container">
+	<div class="new_user">
+		<h1 class="form_header">Edit your account details.</h1>
+
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+		  <%= devise_error_messages! %>
+
+		  <div><%= f.label :Name %><br />
+		  <%= f.text_field :fullname , :class => "new_user_text"%></div>
+		
+		  <div><%= f.label :email %><br />
+		  <%= f.email_field :email , :class => "new_user_text"%></div>
+
+		  <div><%= f.label :password %> <i>(*leave blank if you don't want to change it)</i><br />
+		  <%= f.password_field :password, :class => "new_user_text" %></div>
+
+		  <div><%= f.label :password_confirmation %><br />
+		  <%= f.password_field :password_confirmation, :class => "new_user_text" %></div>
+
+		  <div><%= f.label :current_password %> <i>(*we need your current password to confirm your changes)</i><br />
+		  <%= f.password_field :current_password, :class => "new_user_text" %></div>
+		
+		  <div>
+			<%= f.label :timezone, :class => 'placeholder' %><br/>
+			<%= f.time_zone_select :timezone, ActiveSupport::TimeZone.all %>
+		  </div>
+
+		  
+		  <div><%= f.submit "Update your profile", :class => 'button big green' %>
+		  <span class="left-space">or</span>
+		  <%= link_to 'Cancel', root_path, :class => 'small_link' %></div>
+		<% end %>
+
+
+		<p>If you unhappy with your account, you can cancel it anytime. No questions asked?</p> 
+			
+		<%= link_to "Cancel my account", registration_path(resource_name), 
+			:confirm => "Are you sure you want to cancel your account? All your data would be lost permanently.", 
+			:method => :delete, :class => 'button big red'%></p>
+
+	</div>
+</div>

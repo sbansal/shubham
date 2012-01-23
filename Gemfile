@@ -10,6 +10,9 @@ gem 'devise'
 gem 'client_side_validations'
 
 gem 'twitter'
+#gem 'resque', :require => 'resque/server'
+gem 'delayed_job_active_record'
+gem "delayed_job_web"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,6 +25,7 @@ end
 group :production do 
  gem 'pg'
  gem 'rack-google_analytics', :require => "rack/google_analytics"
+ gem 'newrelic_rpm'
 end
 group :development do
  gem 'hirb'

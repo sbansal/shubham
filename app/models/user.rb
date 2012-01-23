@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   
   has_many :tasks
   has_many :habits
+    
+  after_create :send_sign_up_notification 
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, 
@@ -18,5 +20,11 @@ class User < ActiveRecord::Base
   
   def to_param
     "#{id}-#{fullname.gsub(/[^a-z0-9]+/i, '-')}"
+  end
+  
+  
+  private 
+  def send_sign_up_notification
+    UserMailer.delay(queue: "welcome_email", priority: -1).welcome_email(self.fullname, self.email)
   end
 end
