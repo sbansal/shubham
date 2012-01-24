@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
   
   private 
   def send_sign_up_notification
-    UserMailer.welcome_email(self.fullname, self.email).deliver
+    Resque.enqueue(WelcomeEmailWorker, self.id)
+    # UserMailer.welcome_email(self.fullname, self.email).deliver
     # UserMailer.delay(queue: "welcome_email", priority: -1).welcome_email(self.fullname, self.email)
   end
 end

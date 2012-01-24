@@ -11,6 +11,7 @@
 			<div><b>Created at - </b><%= user.created_at.strftime("%b %d, %Y at %l:%M %p %Z") %></div>
 			<div><b>Last Signed in - </b><%= user.last_sign_in_at.strftime("%b %d, %Y at %l:%M %p %Z") %></div>
 			<div><b>Sign in IP - </b><%= user.last_sign_in_ip %></div>
+			<div><b>Time Zone - </b><%= user.timezone ? user.timezone : "Central Time (US & Canada)" %></div>			
 			<p class="regular_font">
 				<span class="status status_blue"> Habits - <%= user.habits.count %></span>
 				<span class="status status_red"> Tasks - <%= user.tasks.count %></span>

@@ -85,7 +85,7 @@ Shubham::Application.routes.draw do
   end
   
   constraints resque_constraint do
-    match "/delayed_job" => DelayedJobWeb, :anchor => false
+    mount Resque::Server, :at => "/resque"
   end
 
   # See how all your routes lay out with "rake routes"
