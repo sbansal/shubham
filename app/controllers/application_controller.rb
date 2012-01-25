@@ -1,22 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  
-  before_filter :load_accessed_user, :set_user_time_zone, :store_location, :load_tweet
-  
-  def load_tweet
-    begin
-      @tweet = Twitter.user_timeline("tracelyapp").first
-      @twext = @tweet.text.gsub( %r{http://[^\s<]+} ) do |url|
-        if url[/(?:png|jpe?g|gif|svg)$/]
-        else
-          "<a href='#{url}'>#{url}</a>"
-        end
-      end
-    rescue
-      @twext = 'Welcome to Tracely'
-    end
-  end
+  before_filter :load_accessed_user, :set_user_time_zone, :store_location
   
   private 
   # This method loads the user for which the information is being loaded

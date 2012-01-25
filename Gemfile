@@ -9,7 +9,7 @@ gem 'devise'
 
 gem 'client_side_validations'
 
-gem 'twitter'
+# gem 'twitter'
 gem 'resque', :require => 'resque/server'
 # gem 'delayed_job'
 # gem 'delayed_job_active_record'
