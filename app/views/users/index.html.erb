@@ -1,8 +1,8 @@
 <div class="admin_container">
 	<div class="admin_status_div">
-		<span class="status">Total Subscriptions - <%= @users.count %></span>
-		<span class="status status_blue">Total Habits - <%= Habit.all.count %></span>
-		<span class="status status_red">Total Tasks - <%= Task.all.count %></span>
+		<span class="status">Total Subscriptions - <%= @users.size %></span>
+		<span class="status status_blue">Total Habits - <%= Habit.all.size %></span>
+		<span class="status status_red">Total Tasks - <%= Task.all.size %></span>
 	</div>
 	<div class="user_info">
 		<% @users.each do |user| %>
@@ -13,8 +13,8 @@
 			<div><b>Sign in IP - </b><%= user.last_sign_in_ip %></div>
 			<div><b>Time Zone - </b><%= user.timezone ? user.timezone : "Central Time (US & Canada)" %></div>			
 			<p class="regular_font">
-				<span class="status status_blue"> Habits - <%= user.habits.count %></span>
-				<span class="status status_red"> Tasks - <%= user.tasks.count %></span>
+				<span class="status status_blue"> Habits - <%= user.habits.size %></span>
+				<span class="status status_red"> Tasks - <%= user.tasks.size %></span>
 			</p>
 			<div class="black_seperator"></div>
 		<% end %>

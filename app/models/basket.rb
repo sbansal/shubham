@@ -4,7 +4,6 @@ class Basket < ActiveRecord::Base
   
   
   def css_property(name)
-    logger.info name
     if name == 'Action Item'
       css = "action_item"
     elsif name == 'Back Burner'

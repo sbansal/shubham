@@ -4,8 +4,8 @@
 		<span><%= link_to 'Add New Task', new_user_task_path(@user), :class => 'button big icon add' %></span>
 	<% end %>
 
-	<span class="status" id="completed_tasks"><%= pluralize(@complete_tasks.count, 'Task') %> Completed</span>
-	<span class="status" id="incomplete_tasks"><%= pluralize(@incomplete_tasks.count, 'Task') %> Remaining</span>
+	<span class="status" id="completed_tasks"><%= pluralize(@complete_tasks.size, 'Task') %> Completed</span>
+	<span class="status" id="incomplete_tasks"><%= pluralize(@incomplete_tasks.size, 'Task') %> Remaining</span>
 	<span class="task_form_search">
 		<%= form_tag user_tasks_path(@user), :method => :get, :id => 'task_search_form' do %>
 			<%= text_field_tag 'Search','', :class => 'task_search', :placeholder => 'Search Tasks...'%>

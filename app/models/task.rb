@@ -18,10 +18,8 @@ class Task < ActiveRecord::Base
   def self.search(search, current_user)
     if !search.nil?
       if ActiveRecord::Base.configurations[Rails.env]['adapter'] == 'mysql2'
-        Rails.logger.info "Search mysql"
         Task.where(["name like ? AND user_id = ?", '%' + search + '%', current_user.id])
       elsif ActiveRecord::Base.configurations[Rails.env]['adapter'] == 'postgresql'
-        Rails.logger.info "Search postgres"
         Task.where(["name ILIKE ? AND user_id = ?", '%' + search + '%', current_user.id])
       end
     else 

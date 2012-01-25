@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120122232239) do
+ActiveRecord::Schema.define(:version => 20120125161206) do
 
   create_table "basketizations", :force => true do |t|
     t.integer  "task_id"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(:version => 20120122232239) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "basketizations", ["basket_id"], :name => "index_basketizations_on_basket_id"
+  add_index "basketizations", ["task_id"], :name => "index_basketizations_on_task_id"
 
   create_table "baskets", :force => true do |t|
     t.string   "name"
@@ -62,6 +65,8 @@ ActiveRecord::Schema.define(:version => 20120122232239) do
     t.datetime "updated_at"
   end
 
+  add_index "habits", ["user_id"], :name => "index_habits_on_user_id"
+
   create_table "tasks", :force => true do |t|
     t.text     "name"
     t.boolean  "complete"
@@ -71,6 +76,8 @@ ActiveRecord::Schema.define(:version => 20120122232239) do
     t.integer  "user_id"
   end
 
+  add_index "tasks", ["user_id"], :name => "index_tasks_on_user_id"
+
   create_table "traces", :force => true do |t|
     t.integer  "habit_id"
     t.datetime "trace_date"
@@ -79,6 +86,8 @@ ActiveRecord::Schema.define(:version => 20120122232239) do
     t.datetime "updated_at"
     t.date     "tracedate"
   end
+
+  add_index "traces", ["habit_id"], :name => "index_traces_on_habit_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

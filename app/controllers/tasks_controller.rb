@@ -6,12 +6,12 @@ class TasksController < ApplicationController
   def index
     @user = User.find(session[:accessed_user])
     if params[:Search]
-      @tasks = Task.search(params[:Search], @user)
+      @tasks = Task.search(params[:Search], @user).includes(:baskets)
       if @tasks.nil?
-        @tasks = @user.tasks
+        @tasks = @user.tasks.includes(:baskets)
       end
     else
-      @tasks = @user.tasks
+      @tasks = @user.tasks.includes(:baskets)
     end
     @tasks_by_date = @tasks.order("created_at DESC").group_by {|task| task.created_at.strftime("%B %d %Y")}
     @complete_tasks = @user.tasks.complete

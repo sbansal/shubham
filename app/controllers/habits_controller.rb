@@ -6,7 +6,7 @@ class HabitsController < ApplicationController
   # GET /habits.json
   def index
     @user = User.find(session[:accessed_user])
-    @habits = @user.habits
+    @habits = @user.habits.includes(:traces)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @habits }

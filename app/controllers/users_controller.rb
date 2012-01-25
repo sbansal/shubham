@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!,:authorize_admin_access
   
   def index
-    @users = User.all
+    @users = User.includes(:tasks, :habits)
   end
   
   def authorize_admin_access
