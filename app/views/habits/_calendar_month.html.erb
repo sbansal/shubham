@@ -1,5 +1,13 @@
 <div class="month">
 	<h4 class="month_name"><%= month.strftime("%B %Y") %></h4>
+	<div id="day_name">Su</div>
+	<div id="day_name">Mo</div>
+	<div id="day_name">Tu</div>
+	<div id="day_name">We</div>
+	<div id="day_name">Th</div>
+	<div id="day_name">Fr</div>
+	<div id="day_name">Sa</div>
+	<div class="clear"></div>
 	<% (0..5).each do |i| %>
 		<div class="week">
 			<% (1..7).each do |j| %>

@@ -16,17 +16,35 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   # Make sure to add the attribute here in case of new field is added to user model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :fullname, :timezone
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :fullname, :timezone, :send_daily_email
   
   def to_param
     "#{id}-#{fullname.gsub(/[^a-z0-9]+/i, '-')}"
   end
   
+  # Get the time at which the user should receive there reminder email
+  # the time changes based on each users timezone
+  # We are sending emails at 0600 hrs in each user's timezone
+  def process_run_at_time
+    Time.zone = self.timezone
+    time_in_zone = (Time.zone.now + 1.day).beginning_of_day + 6.hours
+    Rails.logger.info "Time in zone - " + time_in_zone.to_s
+    time_to_run = time_in_zone.utc
+  end
+  
+  # Same as process_run_at_time for the specified timezone
+  def process_run_at_time_for_tz(timezone)
+    Time.zone = timezone
+    time_in_zone = (Time.zone.now + 1.day).beginning_of_day + 6.hours
+    Rails.logger.info "Time in zone - " + time_in_zone.to_s
+    time_to_run = time_in_zone.utc
+  end
+  
   
   private 
   def send_sign_up_notification
-    Resque.enqueue(WelcomeEmailWorker, self.id)
+    #Resque.enqueue(WelcomeEmailWorker, self.id)
     # UserMailer.welcome_email(self.fullname, self.email).deliver
-    # UserMailer.delay(queue: "welcome_email", priority: -1).welcome_email(self.fullname, self.email)
+    UserMailer.delay(queue: "welcome_email", priority: -1).welcome_email(self.fullname, self.email)
   end
 end

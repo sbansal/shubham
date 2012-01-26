@@ -10,9 +10,9 @@ gem 'devise'
 gem 'client_side_validations'
 
 # gem 'twitter'
-gem 'resque', :require => 'resque/server'
-# gem 'delayed_job'
-# gem 'delayed_job_active_record'
+# gem 'resque', :require => 'resque/server'
+# gem 'delayed_job', '3.0.1'
+gem 'delayed_job_active_record'
 # gem "delayed_job_web"
 
 # Gems used only for assets and not required
