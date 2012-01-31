@@ -27,14 +27,14 @@
 			<%= f.time_zone_select :timezone, ActiveSupport::TimeZone.all %>
 		  </div>
 		
-		  <!-- <div>
-		  		  	<p class="regular_font"><b>Receive daily reminder emails?</b></p>
-		  			<p class="regular_font">You can choose to receive daily email reminders regarding your tasks and habits for the day.<br/>
-		  				We will send you an email every morning based on your time zone which is currently set to - <br/>
-		  				<b><%= resource.timezone %></b></p>
-		  				<%= f.check_box :send_daily_email %>
-		  			    <%= f.label :send_daily_email, "Email me my daily tasks and habits" %><br />
-		  		  </div> -->
+		  <div>
+  		  	<p class="regular_font"><b>Receive daily reminder emails?</b></p>
+  			<p class="regular_font">You can choose to receive daily email reminders regarding your tasks and habits for the day.<br/>
+  				We will send you an email every morning based on your time zone which is currently set to -
+  				<b><u><%= resource.timezone %></b></u></p>
+  			<%= f.check_box :send_daily_email %>
+  			<%= f.label :send_daily_email, "Email me my daily tasks and habits" %><br />
+		  </div> 
 
 		  <div class="seperator"></div>
 		  <div><%= f.submit "Update your profile", :class => 'button big green' %>
@@ -50,4 +50,4 @@
 
 	</div>
 </div>
-<!-- <%= render :partial => "common/account_hint" %> -->
+<%= render :partial => "common/account_hint" %>

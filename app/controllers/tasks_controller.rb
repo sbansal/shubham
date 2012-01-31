@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     else
       @tasks = @user.tasks.includes(:baskets)
     end
-    @tasks_by_date = @tasks.order("created_at DESC").group_by {|task| task.created_at.strftime("%B %d %Y")}
+    @tasks_by_date = @tasks.order("created_at DESC").group_by {|task| task.created_at.strftime("%A, %B %d %Y")}
     @complete_tasks = @user.tasks.complete
     @incomplete_tasks = @user.tasks.incomplete
     respond_to do |format|

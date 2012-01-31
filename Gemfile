@@ -13,7 +13,8 @@ gem 'client_side_validations'
 # gem 'resque', :require => 'resque/server'
 # gem 'delayed_job', '3.0.1'
 gem 'delayed_job_active_record'
-# gem "delayed_job_web"
+gem "delayed_job_web"
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,6 +28,7 @@ group :production do
  gem 'pg'
  gem 'rack-google_analytics', :require => "rack/google_analytics"
  gem 'newrelic_rpm'
+ gem 'exceptional'
 end
 group :development do
  gem 'hirb'

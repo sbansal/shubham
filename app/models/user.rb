@@ -40,6 +40,29 @@ class User < ActiveRecord::Base
     time_to_run = time_in_zone.utc
   end
   
+  # send email reminders to everyone
+  def self.send_email_reminder_to_all
+    User.includes(:tasks, :habits).each do |user|
+      user.send_email_reminder
+    end
+  end
+  
+  # send email reminders to people that have email reminder feature turned on
+  def self.send_reminder_emails
+    users = User.where(send_daily_email: true).includes(:tasks, :habits)
+    users.each do |user|
+      user.send_email_reminder
+    end
+  end
+  
+  def send_email_reminder
+    UserMailer.delay(queue: "reminder_email", priority: 10, run_at: process_run_at_time).reminder_email(self.id)
+  end
+  
+  def send_email_reminder_now
+    UserMailer.delay(queue: "reminder_email", priority: 10).reminder_email(self.id)
+  end
+  
   
   private 
   def send_sign_up_notification

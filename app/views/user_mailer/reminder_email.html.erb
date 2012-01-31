@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Tasks and Habits for today</title>
+  <link href="/public/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+</head>
+
+<body style="background-color: #fff;color: #000;text-align: center;font-size: 1em;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">
+	<table width="100%" id="background" border="0" cellpadding="0" cellspacing="0">
+	    <tr><td align="center" valign="top">
+	      <table width="600" id="main" border="0" cellpadding="0" cellspacing="0" style="background-color: #fef9e2;padding: 20px;border: 5px solid #bc420d;">
+	        <tr>
+	          <td id="header" colspan="3" style="text-align: center;">
+	            <a href="http://trace.ly/" target="_blank" style="color: #bc420d;text-decoration: none;"><img src="https://tracely-assets.s3.amazonaws.com/assets/tracely_logo.png" width="250" height="100" alt="Tracely"></a>
+	          </td>
+	        </tr>
+	        <tr>
+			  <td colspan="3"><p style="text-align: left;">Hi <%= @user.fullname %>,</p></td>
+	        </tr>
+	        <tr>
+	          <td colspan="3">
+				<p style="text-align: left;">Here is a list of tasks and habits that you can work on today. Let's take one item at a time 
+					and knock it off the list.</p>
+	          </td>
+	        </tr>
+			<tr>
+				<td><p style="color:#bc420d;"><b><u>TODO LIST</u></b></p></td>
+			</tr>
+			<tr>
+				<td>
+					<% if @user.tasks.incomplete.empty? %>
+						<b><i>You don't have any tasks for today.</i></b>
+						<%= link_to 'Create new task', new_user_task_url(@user) %>
+					<% else %>
+						<ul>
+							<% @user.tasks.incomplete.each do |task|%>
+								<li><%= link_to task.name, edit_user_task_url(@user, task)%></li>
+							<% end %>
+						</ul>
+					<% end %>	
+				</td>
+			</tr>
+			<tr>
+				<td><p style="color:#bc420d;"><b><u>HABITS</u></b></p></td>
+			</tr>
+			<tr>
+				<td>
+					<% if @user.habits.empty? %>
+						<b><i>You have not created a habit yet.</i></b>
+						<%= link_to 'Create new habit', new_user_habit_url(@user) %>
+					<% else %>
+						<ul>
+							<% @user.habits.each do |habit|%>
+								<li><%= link_to habit.title, edit_user_habit_url(@user, habit)%></li>
+							<% end %>
+						</ul>
+					<% end %>
+				</td>
+			</tr>
+			<tr><td><p>If you don't want to receive these daily reminder emails, you can change that setting from 
+				your <%= link_to 'account profile', account_url %> page.</p></td></tr>
+			<tr><td>
+				<p style="text-align: left;">Thanks,<br/>Tracely Team</p>
+				<p style="text-align: left;">For any questions, comments or feedback, just hit reply or email 
+					us at <%= mail_to 'support@hautworks.com', 'support@hautworks.com'%></p>
+			</td></tr>
+	      </table>
+	    </td></tr>
+	  </table>
+</body>
+</html>
