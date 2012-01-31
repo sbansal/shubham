@@ -28,12 +28,12 @@
 			</tr>
 			<tr>
 				<td>
-					<% if @user.tasks.incomplete.empty? %>
+					<% if @tasks.empty? %>
 						<b><i>You don't have any tasks for today.</i></b>
 						<%= link_to 'Create new task', new_user_task_url(@user) %>
 					<% else %>
 						<ul>
-							<% @user.tasks.incomplete.each do |task|%>
+							<% @tasks.each do |task|%>
 								<li><%= link_to task.name, edit_user_task_url(@user, task)%></li>
 							<% end %>
 						</ul>
@@ -45,12 +45,12 @@
 			</tr>
 			<tr>
 				<td>
-					<% if @user.habits.empty? %>
+					<% if @habits.empty? %>
 						<b><i>You have not created a habit yet.</i></b>
 						<%= link_to 'Create new habit', new_user_habit_url(@user) %>
 					<% else %>
 						<ul>
-							<% @user.habits.each do |habit|%>
+							<% @habits.each do |habit|%>
 								<li><%= link_to habit.title, edit_user_habit_url(@user, habit)%></li>
 							<% end %>
 						</ul>

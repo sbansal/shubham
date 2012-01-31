@@ -6,7 +6,9 @@ class UserMailer < ActionMailer::Base
   end
   
   def reminder_email(id)
-    @user = User.find(id, include: [:tasks,:habits])
+    @user = User.find(id)
+    @tasks = @user.tasks.order('created_at DESC').incomplete
+    @habits = @user.habits.order('created_at DESC')
     if @user.send_daily_email?
       mail to: @user.email, subject: "Your Todo List and Habits for today", from: "support@hautworks.com"
     end
