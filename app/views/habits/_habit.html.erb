@@ -4,8 +4,14 @@
 	<%= render "habits/calendar_month", :month => Date.today.beginning_of_month, :traces => [], :habit => habit, 
 		:display_link => (user == current_user) %>
 <% else %>
-	<% habit.traces.group_by {|t| t.tracedate.beginning_of_month}.each do |month, traces|%>
-		<%= render "habits/calendar_month", :month => month, :traces => traces, :habit => habit, :display_link => (user == current_user) %>
+	<% (habit.created_at.to_date..Date.today).group_by { |d| d.beginning_of_month}.keys.each do |date| %>
+		<% if traces.has_key?(date) %>
+			<%= render "habits/calendar_month", :month => date, :traces => traces[date], :habit => habit,
+		 	:display_link => (user == current_user) %>
+		<% else %>
+			<%= render "habits/calendar_month", :month => date, :traces => [], :habit => habit, 
+				:display_link => (user == current_user) %>
+		<% end %>
 	<% end %>
 <% end %>
 <div class="clear"></div>

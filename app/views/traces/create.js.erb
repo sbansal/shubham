@@ -1,1 +1,2 @@
-$("#habit_<%= @trace.habit.id %>").html("<%= escape_javascript(render 'habits/habit', :habit => @trace.habit, :user => current_user) %>");
+$("#habit_<%= @trace.habit.id %>").html("<%= escape_javascript(render 'habits/habit', :habit => @trace.habit, :user => current_user,
+	:traces => @trace.habit.traces.group_by {|t| t.tracedate.beginning_of_month}) %>");

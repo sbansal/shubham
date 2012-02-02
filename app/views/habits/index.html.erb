@@ -6,7 +6,7 @@
 <div class="clear"></div>
 <% @habits.each do |habit| %>
 <div class="habit_container" id="habit_<%= habit.id %>">
-	<%= render 'habit', :habit => habit, :user => @user %>
+	<%= render 'habit', :habit => habit, :user => @user, :traces => habit.traces.group_by {|t| t.tracedate.beginning_of_month} %>
 </div>
 <% end %>
 
