@@ -6,11 +6,11 @@
 	</div>
 	<div class="user_info">
 		<% @users.each do |user| %>
-			<h1 class="header_text"><u><%= user.fullname %></u></h1>
+			<h1 class="header_text"><u><%=user.to_param %></u></h1>
 			<div><b><%= user.email %></b></div>
 			<div><b>Created at - </b><%= user.created_at.strftime("%b %d, %Y at %l:%M %p %Z") %></div>
-			<div><b>Last Signed in - </b><%= user.last_sign_in_at.strftime("%b %d, %Y at %l:%M %p %Z") %></div>
-			<div><b>Sign in IP - </b><%= user.last_sign_in_ip %></div>
+			<div><b>Current Sign in - </b><%= user.current_sign_in_at.strftime("%b %d, %Y at %l:%M %p %Z") %></div>
+			<div><b>Sign in count - </b><%= user.sign_in_count %></div>
 			<div><b>Time Zone - </b><%= user.timezone ? user.timezone : "Central Time (US & Canada)" %></div>			
 			<p class="regular_font">
 				<span class="status status_blue"> Habits - <%= user.habits.size %></span>

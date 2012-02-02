@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :fullname, :timezone, :send_daily_email
   
   def to_param
-    "#{id}-#{fullname.gsub(/[^a-z0-9]+/i, '-')}"
+    "#{id}-#{fullname.strip.gsub(/[^a-z0-9]+/i, '-')}"
   end
   
   # Get the time at which the user should receive there reminder email
