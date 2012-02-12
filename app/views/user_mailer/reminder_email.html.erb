@@ -51,7 +51,7 @@
 					<% else %>
 						<ul>
 							<% @habits.each do |habit|%>
-								<li><%= link_to habit.title, edit_user_habit_url(@user, habit)%></li>
+								<li><%= link_to habit.title, user_habits_url(@user, anchor: habit.id) %></li>
 							<% end %>
 						</ul>
 					<% end %>

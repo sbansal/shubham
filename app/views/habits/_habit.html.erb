@@ -1,4 +1,5 @@
-<h4 class="habit_header"><%= link_to_if user == current_user, "#{habit.title.upcase}", edit_user_habit_path(current_user, habit) %> </h4>
+<h4 class="habit_header"><%= link_to_if user == current_user, "#{habit.title.upcase}", edit_user_habit_path(current_user, habit), 
+	name: habit.id %> </h4>
 <div class="clear"></div>
 <% if habit.traces.empty? %>
 	<%= render "habits/calendar_month", :month => Date.today.beginning_of_month, :traces => [], :habit => habit, 
